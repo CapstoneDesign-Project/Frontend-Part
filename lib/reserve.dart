@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:una/noticePage.dart';
 import 'package:una/widgets/ReserveContainer.dart';
 
-void main() {
-  runApp(const Reserve());
-}
+// void main() {
+//   runApp(const Reserve());
+// }
 
 class Reserve extends StatefulWidget {
   const Reserve({super.key});
@@ -34,7 +35,10 @@ class _ReserveState extends State<Reserve> {
                 size: 27,
               ),
               onPressed: () {
-                print('알림버튼 클릭');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NoticePage()));
               },
             ),
           ],

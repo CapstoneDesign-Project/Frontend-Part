@@ -111,8 +111,9 @@ class _LoginTestState extends State<LoginTest> {
       clipBehavior: Clip.antiAlias,
       child: Ink.image(
         image: AssetImage('asset/image/$path.png'),
-        width: 130,
-        height: 30,
+        fit: BoxFit.fill,
+        width: 195,
+        height: 50,
         child: InkWell(
           onTap: onTap,
         ),

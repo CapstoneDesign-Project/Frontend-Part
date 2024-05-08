@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class InputChildNameSchool extends StatelessWidget {
-  const InputChildNameSchool({super.key});
+class InputChildName extends StatelessWidget {
+  const InputChildName({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,19 @@ class InputChildNameSchool extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            Icon(
-              Icons.add_circle_rounded,
-              color: Colors.blue[600],
+            IconButton(
+              icon: const Icon(
+                Icons.add_circle_rounded,
+                color: Color.fromRGBO(30, 136, 229, 1),
+              ),
+              onPressed: () {
+                print('plus button clicked');
+              },
             ),
+            // Icon(
+            //   Icons.add_circle_rounded,
+            //   color: Color.fromRGBO(30, 136, 229, 1),
+            // ),
           ],
         ),
       ),
