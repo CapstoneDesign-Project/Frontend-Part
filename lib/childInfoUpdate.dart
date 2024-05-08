@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:una/noticePage.dart';
+import 'package:una/parentsMyPage.dart';
 import 'package:una/widgets/InputChildGradeclass.dart';
-import 'package:una/widgets/InputChildNameSchool.dart';
+import 'package:una/widgets/InputChildName.dart';
+import 'package:una/widgets/InputChildSchool.dart';
 import 'package:una/widgets/SubmitBtn.dart';
 
 void main() {
@@ -20,8 +23,14 @@ class _ChildInfoUpdateState extends State<ChildInfoUpdate> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          leading: const BackButton(
+          leading: BackButton(
             color: Colors.black,
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ParentsMyPage()));
+            },
           ),
           centerTitle: true,
           title: const Text(
@@ -39,7 +48,10 @@ class _ChildInfoUpdateState extends State<ChildInfoUpdate> {
                 size: 27,
               ),
               onPressed: () {
-                print('알림버튼 클릭');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NoticePage()));
               },
             ),
           ],
@@ -56,7 +68,19 @@ class _ChildInfoUpdateState extends State<ChildInfoUpdate> {
                     fontSize: 17,
                   ),
                 ),
-                InputChildNameSchool(),
+                // Row(
+                //   children: [
+                //     InputChildNameSchool(),
+                //     SizedBox(
+                //       width: 5,
+                //     ),
+                //     Icon(
+                //       Icons.add_circle_rounded,
+                //       color: Color.fromRGBO(30, 136, 229, 1),
+                //     ),
+                //   ],
+                // ),
+                InputChildName(),
                 SizedBox(
                   height: 5,
                 ),
@@ -66,7 +90,7 @@ class _ChildInfoUpdateState extends State<ChildInfoUpdate> {
                     fontSize: 17,
                   ),
                 ),
-                InputChildNameSchool(),
+                InputChildSchool(),
                 SizedBox(
                   height: 5,
                 ),

@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:una/appPurpose.dart';
 import 'package:una/login.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:una/loginTest.dart';
+import 'package:una/mainPage.dart';
 
-void main() {
-  KakaoSdk.init(nativeAppKey: '82efe4abd89c7464f5ad4c7aa73b806c');
-  runApp(const App());
-}
+void main() => runApp(const App());
+//KakaoSdk.init(nativeAppKey: '82efe4abd89c7464f5ad4c7aa73b806c');
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const LoginTest(),
+      home: AppPurpose(),
+      //home: MainPage(),
     );
   }
 }
