@@ -28,8 +28,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_inappwebview: ^5.7.2+3
+
+  uni_links: ^0.5.0
+  
   flutter:
     sdk: flutter
+  go_router: ^14.0.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -38,9 +43,10 @@ dependencies:
   kakao_flutter_sdk: ^1.9.1+2
   kakao_flutter_sdk_user: ^1.9.1+2
 
-  http: ^0.13.3
+  http: ^0.13.6
   intl: ^0.19.0
   syncfusion_flutter_datepicker: ^25.1.42
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

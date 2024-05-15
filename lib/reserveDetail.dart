@@ -101,7 +101,7 @@ class _ReserveDetailState extends State<ReserveDetail> {
                 SizedBox(
                   height: 20,
                 ),
-                SubmitBtn(text: '예약 취소'),
+                // SubmitBtn(text: '예약 취소'),
               ],
             ),
           ),

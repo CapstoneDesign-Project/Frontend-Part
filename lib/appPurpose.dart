@@ -6,6 +6,9 @@ import 'package:una/memInfo.dart';
 // }
 
 class AppPurpose extends StatelessWidget {
+  static const routeName = "purpose";
+  static const routeURL = "/purpose";
+
   const AppPurpose({super.key});
 
   @override

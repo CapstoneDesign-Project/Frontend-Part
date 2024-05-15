@@ -80,7 +80,8 @@ class _ChildInfoUpdateState extends State<ChildInfoUpdate> {
                 //     ),
                 //   ],
                 // ),
-                InputChildName(),
+
+                //InputChildName(),
                 SizedBox(
                   height: 5,
                 ),
@@ -90,7 +91,7 @@ class _ChildInfoUpdateState extends State<ChildInfoUpdate> {
                     fontSize: 17,
                   ),
                 ),
-                InputChildSchool(),
+                //InputChildSchool(),
                 SizedBox(
                   height: 5,
                 ),
@@ -103,11 +104,11 @@ class _ChildInfoUpdateState extends State<ChildInfoUpdate> {
                 SizedBox(
                   height: 10,
                 ),
-                InputChildGradeclass(),
+                //InputChildGradeclass(),
                 SizedBox(
                   height: 20,
                 ),
-                SubmitBtn(text: '수정'),
+                //SubmitBtn(text: '수정'),
               ],
             ),
           ),

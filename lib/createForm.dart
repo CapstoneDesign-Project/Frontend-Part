@@ -120,7 +120,7 @@ class _CreateFormState extends State<CreateForm> {
                     ],
                   ),
                 ),
-                const SubmitBtn(text: '예약 완료'),
+                //const SubmitBtn(text: '예약 완료'),
               ],
             ),
           ),

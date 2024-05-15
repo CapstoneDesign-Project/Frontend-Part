@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
-import 'package:una/login.dart';
 import 'package:una/main.dart';
 import 'package:una/noticePage.dart';
 import 'package:una/parentsMyPage.dart';
@@ -18,6 +17,9 @@ import 'package:una/widgets/TypeChildContainer.dart';
 // }
 
 class MainPage extends StatefulWidget {
+  static const routeName = "mainPage";
+  static const routeURL = "/mainPage";
+
   const MainPage({super.key});
 
   @override

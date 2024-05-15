@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class InputChildGradeclass extends StatefulWidget {
-  const InputChildGradeclass({super.key});
+  final VoidCallback onDelete;
+  final bool showIcon;
+
+  const InputChildGradeclass({
+    super.key,
+    required this.onDelete,
+    required this.showIcon,
+  });
 
   @override
   State<InputChildGradeclass> createState() => _InputChildGradeclassState();
@@ -15,7 +22,6 @@ class _InputChildGradeclassState extends State<InputChildGradeclass> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Row(
           children: [
@@ -45,10 +51,21 @@ class _InputChildGradeclassState extends State<InputChildGradeclass> {
             const SizedBox(
               width: 20,
             ),
-            Icon(
-              Icons.add_circle_rounded,
-              color: Colors.blue[600],
-            ),
+            if (widget.showIcon) // showIcon이 true일 때만 아이콘 표시
+              IconButton(
+                icon: const Icon(
+                  Icons.do_not_disturb_on,
+                  color: Color.fromRGBO(30, 136, 229, 1),
+                ),
+                onPressed: widget.onDelete,
+              ),
+            // IconButton(
+            //   icon: const Icon(
+            //     Icons.do_not_disturb_on,
+            //     color: Color.fromRGBO(30, 136, 229, 1),
+            //   ),
+            //   onPressed: widget.onDelete,
+            // ),
           ],
         ),
       ],
