@@ -39,9 +39,8 @@ class _FirstLoginState extends State<FirstLogin> {
   Widget _loginButton() => Padding(
         padding: const EdgeInsets.all(20.0),
         child: GestureDetector(
-          //onTap: context.read<UserController>().kakaoLogin,
           onTap: () {
-            GoRouter.of(context).go('/userLogin');
+            GoRouter.of(context).go('/purpose');
           },
           child: Image.asset(
             "asset/image/Kakao4.png",

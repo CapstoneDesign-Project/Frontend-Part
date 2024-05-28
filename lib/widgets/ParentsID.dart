@@ -3,7 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:una/UserController.dart';
 
 class ParentsID extends StatelessWidget {
-  const ParentsID({super.key});
+  final String userId;
+
+  const ParentsID({
+    super.key,
+    required this.userId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,26 +19,16 @@ class ParentsID extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Consumer<UserController>(
-          builder: (context, controller, child) {
-            final String? userID =
-                controller.user?.properties?["parentKakaoId"];
-            if (userID != null) {
-              return Text(
-                userID,
-                style: const TextStyle(
-                  fontSize: 20,
-                ),
-              );
-            } else {
-              return const Text(
-                "아이디",
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              );
-            }
-          },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              userId,
+              style: const TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ],
         ),
       ),
     );

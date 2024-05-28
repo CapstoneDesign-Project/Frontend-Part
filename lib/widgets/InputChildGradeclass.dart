@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InputChildGradeclass extends StatefulWidget {
-  final VoidCallback onDelete;
+  final VoidCallback? onDelete;
   final bool showIcon;
 
   const InputChildGradeclass({
@@ -177,3 +177,39 @@ class _InputChildGradeclassState extends State<InputChildGradeclass> {
     );
   }
 }
+
+// import 'package:flutter/material.dart';
+
+// class InputChildGradeclass extends StatelessWidget {
+//   final VoidCallback onDelete;
+//   final bool showIcon;
+
+//   const InputChildGradeclass(
+//       {required this.onDelete, required this.showIcon, super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       children: [
+//         Expanded(
+//           child: TextField(
+//             style: const TextStyle(fontSize: 20),
+//             decoration: const InputDecoration(
+//               border: OutlineInputBorder(
+//                 borderRadius: BorderRadius.all(Radius.circular(12.0)),
+//               ),
+//             ),
+//             onChanged: (value) {
+//               // You need to add logic here to update the relevant child info in MemInfo
+//             },
+//           ),
+//         ),
+//         if (showIcon)
+//           IconButton(
+//             icon: const Icon(Icons.remove_circle_rounded, color: Colors.red),
+//             onPressed: onDelete,
+//           ),
+//       ],
+//     );
+//   }
+// }

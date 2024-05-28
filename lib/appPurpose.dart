@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:una/memInfo.dart';
+import 'package:go_router/go_router.dart';
+import 'package:una/teacherLogin.dart';
+import 'package:una/userLogin.dart';
 
-// void main() {
-//   runApp(const AppPurpose());
-// }
-
-class AppPurpose extends StatelessWidget {
+class AppPurpose extends StatefulWidget {
   static const routeName = "purpose";
   static const routeURL = "/purpose";
 
   const AppPurpose({super.key});
 
+  @override
+  State<AppPurpose> createState() => _AppPurposeState();
+}
+
+class _AppPurposeState extends State<AppPurpose> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,23 +52,28 @@ class AppPurpose extends StatelessWidget {
             const SizedBox(
               height: 140,
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 217, 217, 217),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 17, horizontal: 90),
-                child: Column(
-                  children: [
-                    Text(
-                      '교사용',
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w600,
+            GestureDetector(
+              onTap: () async {
+                GoRouter.of(context).go(TeacherLogin.routeURL);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 217, 217, 217),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 17, horizontal: 90),
+                  child: Column(
+                    children: [
+                      Text(
+                        '교사용',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -73,11 +81,8 @@ class AppPurpose extends StatelessWidget {
               height: 10,
             ),
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MemInfo()),
-                );
+              onTap: () async {
+                GoRouter.of(context).go(UserLogin.routeURL);
               },
               child: Container(
                 decoration: BoxDecoration(

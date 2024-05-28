@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:una/childInfoUpdate.dart';
 import 'package:una/mainPage.dart';
 import 'package:una/noticePage.dart';
@@ -10,6 +11,9 @@ import 'package:una/widgets/ParentsMyPageBtn.dart';
 // }
 
 class ParentsMyPage extends StatefulWidget {
+  static const routeName = "parentsMyPage";
+  static const routeURL = "/parentsMyPage";
+
   const ParentsMyPage({super.key});
 
   @override
@@ -77,87 +81,95 @@ class _ParentsMyPageState extends State<ParentsMyPage> {
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 100,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 234, 233, 233),
-                    borderRadius: BorderRadius.circular(45),
-                  ),
-                  child: const Icon(
-                    Icons.person_rounded,
-                    color: Color.fromARGB(255, 168, 168, 168),
-                    size: 65,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  '학부모1님',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 110,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ChildInfoUpdate()),
-                );
-              },
-              child: Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: Color.fromARGB(255, 217, 217, 217),
-                      width: 1.7,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 100,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 234, 233, 233),
+                      borderRadius: BorderRadius.circular(45),
                     ),
-                    bottom: BorderSide(
-                      color: Color.fromARGB(255, 217, 217, 217),
-                      width: 1.7,
+                    child: const Icon(
+                      Icons.person_rounded,
+                      color: Color.fromARGB(255, 168, 168, 168),
+                      size: 65,
                     ),
                   ),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '자녀정보 수정',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  const Text(
+                    '학부모1님',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 110,
+              ),
+              GestureDetector(
+                //onTap: () {
+                // Navigator.push(
+                //   context,
+
+                //GoRouter.of(context).go('/edit-child/10/자녀일');
+                onTap: () async {
+                  GoRouter.of(context).go('/edit-child/10/자녀일');
+                },
+
+                // MaterialPageRoute(
+                //     builder: (context) => const ChildInfoUpdate()),
+                // );
+                //},
+                child: Container(
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: Color.fromARGB(255, 217, 217, 217),
+                        width: 1.7,
                       ),
-                      Icon(Icons.arrow_forward_ios_rounded),
-                    ],
+                      bottom: BorderSide(
+                        color: Color.fromARGB(255, 217, 217, 217),
+                        width: 1.7,
+                      ),
+                    ),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '자녀정보 수정',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Icon(Icons.arrow_forward_ios_rounded),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            const ParentsMyPageBtn(
-                text: '고객센터', ic: Icons.arrow_forward_ios_rounded),
-            const ParentsMyPageBtn(
-                text: '개인정보 처리방침', ic: Icons.arrow_forward_ios_rounded),
-            const ParentsMyPageBtn(
-                text: '로그아웃', ic: Icons.arrow_forward_ios_rounded),
-          ],
+              const ParentsMyPageBtn(
+                  text: '고객센터', ic: Icons.arrow_forward_ios_rounded),
+              const ParentsMyPageBtn(
+                  text: '개인정보 처리방침', ic: Icons.arrow_forward_ios_rounded),
+              const ParentsMyPageBtn(
+                  text: '로그아웃', ic: Icons.arrow_forward_ios_rounded),
+            ],
+          ),
         ),
       ),
     );

@@ -8,14 +8,6 @@ import 'package:una/reserve.dart';
 import 'package:una/widgets/MainPageBtn.dart';
 import 'package:una/widgets/TypeChildContainer.dart';
 
-// void main() => runApp(const MaterialApp(
-//       home: MainPage(),
-//     ));
-
-// void main() {
-//   runApp(const MainPage());
-// }
-
 class MainPage extends StatefulWidget {
   static const routeName = "mainPage";
   static const routeURL = "/mainPage";

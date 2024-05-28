@@ -3,7 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:una/UserController.dart';
 
 class ParentsPhone extends StatelessWidget {
-  const ParentsPhone({super.key});
+  final String userPhone;
+  const ParentsPhone({
+    super.key,
+    required this.userPhone,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,26 +18,16 @@ class ParentsPhone extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Consumer<UserController>(
-          builder: (context, controller, child) {
-            final String? phone =
-                controller.user?.properties?["parentPhoneNumber"];
-            if (phone != null) {
-              return Text(
-                phone,
-                style: const TextStyle(
-                  fontSize: 20,
-                ),
-              );
-            } else {
-              return const Text(
-                "전화번호",
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              );
-            }
-          },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              userPhone,
+              style: const TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ],
         ),
       ),
     );

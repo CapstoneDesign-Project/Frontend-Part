@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:una/createForm.dart';
+import 'package:una/mainPage.dart';
 import 'package:una/noticePage.dart';
+import 'package:una/parentsMyPage.dart';
 import 'package:una/widgets/ReserveContainer.dart';
 
-// void main() {
-//   runApp(const Reserve());
-// }
-
 class Reserve extends StatefulWidget {
+  static const routeName = "reserve";
+  static const routeURL = "/reserve";
+
   const Reserve({super.key});
 
   @override
@@ -14,6 +17,8 @@ class Reserve extends StatefulWidget {
 }
 
 class _ReserveState extends State<Reserve> {
+  int currentPageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,16 +48,48 @@ class _ReserveState extends State<Reserve> {
             ),
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
+        // bottomNavigationBar: BottomNavigationBar(
+        //   items: const <BottomNavigationBarItem>[
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.home_rounded),
+        //       label: '홈',
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.person_rounded),
+        //       label: '마이페이지',
+        //     ),
+        //   ],
+        // ),
+        bottomNavigationBar: NavigationBar(
+          onDestinationSelected: (int index) {
+            setState(() {
+              currentPageIndex = index;
+              if (index == 0) {
+                // 학부모Main페이지로 이동
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainPage()),
+                );
+              } else if (index == 1) {
+                // 학부모My페이지로 이동
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ParentsMyPage()),
+                );
+              }
+            });
+          },
+          selectedIndex: currentPageIndex,
+          destinations: const <Widget>[
+            NavigationDestination(
               icon: Icon(Icons.home_rounded),
               label: '홈',
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.person_rounded),
               label: '마이페이지',
-            ),
+            )
           ],
         ),
         body: Stack(
@@ -103,18 +140,26 @@ class _ReserveState extends State<Reserve> {
             Positioned(
               bottom: 20,
               right: 32,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(0, 0, 0, 0.64),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                  child: Text(
-                    '예약하기',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const CreateForm()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(0, 0, 0, 0.64),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    child: Text(
+                      '예약하기',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17,
+                      ),
                     ),
                   ),
                 ),

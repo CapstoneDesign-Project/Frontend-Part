@@ -6,11 +6,11 @@ import 'package:go_router/go_router.dart';
 import 'package:una/appPurpose.dart';
 import 'package:una/parentInfoForm.dart';
 
-class UserLogin extends StatelessWidget {
-  static const routeName = "userLogin";
-  static const routeURL = "/userLogin";
+class TeacherLogin extends StatelessWidget {
+  static const routeName = "teacherLogin";
+  static const routeURL = "/teacherLogin";
 
-  const UserLogin({super.key});
+  const TeacherLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,6 @@ class _WebViewWidgetState extends State<WebViewWidget> {
         _webViewController = controller;
       },
       onLoadStop: (controller, url) async {
-        // JavaScript to get the response body
         String? responseBody =
             await _webViewController.evaluateJavascript(source: '''
           (function() {
@@ -59,13 +58,7 @@ class _WebViewWidgetState extends State<WebViewWidget> {
           try {
             Map<String, dynamic> responseJson = jsonDecode(responseBody);
             if (responseJson['id'] == 'Success') {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => ParentInfoForm(
-              //       parentInfo: responseJson['result'],
-              //     ),
-              //   ),
+              // 아래 코드 교사용 회원기입 페이지로 이동할 수 있게 수정할 것
               context.go(
                 '/parentInfo',
                 extra: responseJson['result'],

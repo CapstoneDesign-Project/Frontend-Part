@@ -35,3 +35,13 @@ class KakaoLoginApi {
     }
   }
 }
+
+// import 'package:flutter/services.dart';
+// import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
+
+// class KakaoLoginApi {
+//   Future<User> getUserInfo() async {
+//     final UserApi api = UserApi.instance;
+//     return await api.me();
+//   }
+// }

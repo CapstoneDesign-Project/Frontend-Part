@@ -7,6 +7,9 @@ import 'package:una/parentsMyPage.dart';
 // }
 
 class NoticePage extends StatefulWidget {
+  static const routeName = "notice";
+  static const routeURL = "/notice";
+
   const NoticePage({super.key});
 
   @override
